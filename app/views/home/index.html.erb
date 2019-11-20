@@ -1,13 +1,13 @@
  <div id="page-wrap">
   <h1 class="text-center mb-4">Welcome to my todolist app</h1>
   <%= render 'layouts/task_form'  %>
-  <div class="container">
+  <div class="container"  id='task-list' >
     <ul class="row">
       <% @categories.each do  |category|%>
         <div class="col-md-4">
-          <li  class="category-item list-group-item" id="<%= category.title %>"><%= category.title  %></li>
+          <li  class="category-item list-group-item" ><%= category.title  %></li>
           <div class="card category-div">
-            <ul id='task-list'>
+            <ul id="<%= category.title %>">
               <% category.tasks.each do |task|  %>
               <li>
                 <%= task.title  %>
