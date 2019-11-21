@@ -1,0 +1,28 @@
+
+		<div><br/>
+
+	    <div class="d-flex w-100 justify-content-between"> 
+	    <h5 class="mb-1">OBJECT : <%= @email.object %></h5>
+	    <small class="text-muted">3 days ago</small>
+	    </div>
+	    <p class="mb-1"><%= @email.body %>.</p>
+	    <footer class="blockquote-footer"> message <cite title="Source Title"> 
+	    	<% if @email.read == true %>
+	    	lu
+	    	<% else %>
+	    	non lu 
+	    	<% end %>
+	    </cite></footer>
+
+
+
+	    <div class ="d-flex w-100 justify-content-center">
+	    
+	    <%= link_to '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAq0lEQVRIS+2VwQ2EMAwEhwquBKCTKwUqg1IoBTqgA1AkwiPBWkLID36RnR2vreCKwl9VWB8F+AMD0BiFzEAPTFahCuAEauHS5bRPAdtx0SpExWWLlICKRwB/IXf2p+PQenGAr1xaDyya+Y+H9zYgrFCdT/5dB0owu0UfIHpXqS35ZiB/TdktUoRkwAr8lGoQX642n/WS3aocb2wzz3Di3dXqVCsz0UScXhywA1B5OBlWmW2pAAAAAElFTkSuQmCC"/>'.html_safe, email_path(email.id),method: :delete, remote: true, class: "btn btn-outline-danger"%> 
+
+			<button type="button" class="btn btn-outline-warning" id="readButton">Marquer comme non-lu</button>
+			
+			</div>
+
+  	</div>
+

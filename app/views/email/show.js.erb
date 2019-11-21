@@ -1,0 +1,30 @@
+
+//on enlève l'email affiché à droite
+	document.getElementById("email-shown").lastElementChild.remove();
+
+//on rajoute l'email voulu
+	document.getElementById("email-shown").insertAdjacentHTML("beforeend", "<%= j render 'show', email: @email %>");
+
+
+// on définit les fonctions lu et non lu
+// true = lu, false = non lu
+
+var myEmail = document.getElementById("email-shown") ;
+var readButton = document.getElementById("readButton") ;
+
+
+console.log(myEmail)
+console.log(readButton)
+
+function readClick() {
+	console.log("Cet email est maintenant lu")
+	
+	if (myEmail.read === false){
+		myEmail.read = true ;
+		myEmail.style.backgroundCcolor = 'red'
+	}	
+
+}
+
+
+myEmail.addEventListener('click', readClick);

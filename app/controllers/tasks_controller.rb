@@ -30,11 +30,14 @@ before_action :authenticate_user!
 
   end
 
-  def update
+def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to tasks_path
-    flash[:notice] = "Task edited"
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
+    end
+    #redirect_to root_path
   end
 
   def index
@@ -44,14 +47,18 @@ before_action :authenticate_user!
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to root_path
+    #ces 4 lignes rajoutées pour AJAX
+    respond_to do |format|
+      format.html { redirect_to @root_path}
+      format.js { }
+    end
   end
 
 
   private
 
   def task_params
-    params.permit(:title, :deadline, :description, :category)
+    params.permit(:title, :deadline, :description, :category, :status)
   end
 
   def category_params

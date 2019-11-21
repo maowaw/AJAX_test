@@ -1,0 +1,44 @@
+<center> <h1>Mes emails</h1> 
+
+<div class= "container"> 
+
+<!-- 	If no :method modifier is given, it will default to performing a POST operation -->
+	<button type="button" class="  btn btn-outline-success"> <%= link_to '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABFElEQVRIS92U0XHCMBBEHxUkHQAVkBLSCaSDUEnoANJJSggdQAekApjN3GU0suSTzfiD6Mdj+7Tvdk+jGROv2cT6/E/AK7AHFiPjOwFvwJf2lyJSwXykuG+TxrIGuFrVBdgCh0bYBvgAnq3+t/mSAwe4rgACCVhaEpSwAOkKAcpxBzwB35arnul6sXnp+QO82/tf830O9E8b5WBlDtLI0kiO5kANeAKhA4crAjlZW+s+E4/k0zr3CENAbaYS9MhU45Hkh6AKyIfbGVgSmf4JmM9E3+8CtJzY0RG1iPc6cIFaVK0XY+hgckAURd9h8L1nvywj27mY6iOAxHXCqrdp6qAEiBx2L6RBOwYWRxENlOuWPz7gBo3POBm4kF6TAAAAAElFTkSuQmCC"/>'.html_safe, email_index_path, method: :post, remote: true %> </button>
+
+
+</center>
+
+</div> <br/> <br/>
+
+<div class="card-deck">
+	<div class="card text-center">
+	  <div class="card-header">
+	    Liste des emails
+	  </div>
+		<ul class="list-group list-group-flush" id="email-list">
+	 		<% Email.all.each do  |email|%>
+    		 <li id="<%= email.id %>" class="category-item list-group-item"><%= link_to(email.object, email_path(email), class:"card-text", remote: true, method: :edit) %> </li>
+
+
+    		</li>
+  		<% end %>
+  	</ul>
+	</div>
+
+
+	<div class="list-group col-7">
+
+
+  <div class="list-group-item list-group-item-action active">
+    Email selectionné
+  </div>Cliquez sur un email pour voir son contenu
+  <ul id ="email-shown" > 
+
+  <footer class="blockquote-footer"><cite title="Source Title"> Allé clique :) </cite></footer>
+</ul>
+	</ul>
+	</div>
+
+
+</div>
+

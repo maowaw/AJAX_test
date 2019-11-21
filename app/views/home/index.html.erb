@@ -1,7 +1,12 @@
  <div id="page-wrap">
   <h1 class="text-center mb-4">Welcome to my todolist app</h1>
+  
+
+<!--------- formulaire de création de tâche ---------->
   <%= render 'layouts/task_form'  %>
-  <div class="container"  id='task-list' >
+
+
+  <div class="container"  id="task-list" >
     <ul class="row">
       <% @categories.each do  |category|%>
         <div class="col-md-4">
@@ -9,12 +14,27 @@
           <div class="card category-div">
             <ul id="<%= category.title %>">
               <% category.tasks.each do |task|  %>
-              <li>
+              <li id="<%= task.id %>">
+                <%= check_box_tag :status, 
+                  true, 
+                  false, 
+                  data: { remote: true, 
+                  url: task_path(task.id), 
+                  params: { id: task.id , status: !task.status}.to_param, 
+                  method: "put" 
+                  } %>
+
+                  <%= check_box_tag :status, true, task.status, data: { remote: true, url: task_path(task.id), params:{status: !task.status}.to_param, method: "put" }%>
+
                 <%= task.title  %>
                 <% unless task.deadline.nil? %>
-                  , to read: <%= task.deadline.strftime('%D')  %>
+                  , to read: <%= task.deadline.strftime('%D')  %>  
                 <% end %>
-              </li>
+
+
+
+              <%= link_to '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAq0lEQVRIS+2VwQ2EMAwEhwquBKCTKwUqg1IoBTqgA1AkwiPBWkLID36RnR2vreCKwl9VWB8F+AMD0BiFzEAPTFahCuAEauHS5bRPAdtx0SpExWWLlICKRwB/IXf2p+PQenGAr1xaDyya+Y+H9zYgrFCdT/5dB0owu0UfIHpXqS35ZiB/TdktUoRkwAr8lGoQX642n/WS3aocb2wzz3Di3dXqVCsz0UScXhywA1B5OBlWmW2pAAAAAElFTkSuQmCC"/>'.html_safe, task_path(task.id),method: :delete, remote: true %> 
+              <br/></li>
               <% end %>
             </ul>
           </div>
