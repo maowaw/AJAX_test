@@ -42,8 +42,6 @@ class EmailController < ApplicationController
     end
   end
 
-  def edit 
-  end
 
   def update
     @email = Email.find(params[:id])

@@ -17,7 +17,7 @@
 	  </div>
 		<ul class="list-group list-group-flush" id="email-list">
 	 		<% Email.all.each do  |email|%>
-    		 <li id="<%= email.id %>" class="category-item list-group-item"><%= link_to(email.object, email_path(email), class:"card-text", remote: true, method: :edit) %> </li>
+    		 <li id="<%= email.id %>" class="category-item list-group-item"><%= link_to(email.object, email_path(email), class:"card-text", remote: true) %> </li>
 
 
     		</li>

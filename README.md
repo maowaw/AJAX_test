@@ -1,24 +1,24 @@
-# README
+Bon matin !
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bienvenue sur cette pâle copie de gmail, sur laquelle tu pourras avoir l'impression d'avoir plein d'amis en générant des mails, que tu pourras également supprimer. Voilà.
+Pour se servir de ce super site, il te suffit de rentrer sur ton terminal :
 
-Things you may want to cover:
+		$ git clone https://github.com/maowaw/AJAX_test.git
+ 
+Puis : 
 
-* Ruby version
+		$ bundle install
 
-* System dependencies
+Ensuite pour générer la base de données : 
 
-* Configuration
+		$ rails db:create
+		$ rails db:migrate
+		$ rails db:seed
 
-* Database creation
+Enfin, lance le serveur sur ta console :
 
-* Database initialization
+		$ rails s
 
-* How to run the test suite
+Voila, il suffit d'aller sur ton serveur web et charger la page 
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+		http://localhost:3000/
